@@ -1,4 +1,37 @@
-#heading{
-    color: burlywood;
-    background-color: aqua;
+.header{
+    display: flex;
+    border: 2px solid black;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+
+.logo{
+width: 200px;
+}
+
+.nav-items>ul{
+    font-size: 24px;
+    display:flex;
+    list-style-type: none;
+    
+    
+
+}
+
+.nav-items>ul>li{
+    padding: 10px;
+    margin-right: 10px;
+    size: 24px;
+}
+
+.res-card{
+    width: 200px;
+    height:300px;
+    border: 1px solid skyblue;
+    background-color: darkcyan;
+}
+
+.search{
+    padding: 10px;
 }

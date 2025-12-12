@@ -2,31 +2,58 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createRoot } from "react-dom/client";
 
-/* <div id="parent">
-    <div id="child">
-        <h1></h1>
-    </div>
-</div> */
 
-// const parent=React.createElement("div",{id:"parent"},
-//     React.createElement("div",{id:"child"},
-//         React.createElement("h1",{},"hello This is manish tag!")
-
-// ))
-
-// const root =createRoot(document.getElementById("root"))
-// root.render(parent)
-
-const Jsxheading = ()=>  (<h1 id="heading1">heading for jsx</h1>)
-
-const Reactcontent = ()=>{
+const Header = ()=>{
     return (
+        <div className="header">
+            <div className="logo-container">
+                <img className="logo" 
+                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/25539c29532269.55f7d6a0a8c71.jpg"/>
+            </div>
 
-    <div>
-        <Jsxheading/>
-        <h2>manish is my friend</h2>
-    </div>
-)}
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    )
+}
+
+const Restaurantcard = ()=>{
+    return (
+        <div className="res-card">
+            <h3>Meghna Foods</h3>
+
+        </div>
+    )
+}
+
+const Body = ()=>{
+    return(
+        <div className="body">
+            <div className="search">search</div>
+            <div className="res-container">
+                <Restaurantcard/>
+
+
+            </div>
+        </div>
+    )
+}
+
+const Applayout = ()=>{
+    return(
+        <div className="app">
+            <Header/>
+            <Body/>
+
+        </div>
+    )
+}
 
 const root = createRoot(document.getElementById("root"))
-root.render(<Reactcontent/>)
+root.render(<Applayout/>)
