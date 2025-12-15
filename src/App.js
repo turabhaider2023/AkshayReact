@@ -1,27 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createRoot } from "react-dom/client";
+import Header from "./components/Header.js";
+import Body from "./components/Body.js";
 
 
-const Header = ()=>{
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" 
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/25539c29532269.55f7d6a0a8c71.jpg"/>
-            </div>
 
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
+
 
 const resList = [
   {
@@ -145,24 +130,6 @@ const Restaurantcard = (props)=>{
     )
 }
 
-const Body = ()=>{
-    return(
-        <div className="body">
-            <div className="search">search</div>
-            <div className="res-container">
-               { resList.map((restaurant) =>(<Restaurantcard key={restaurant.id} 
-               resData={restaurant}/>))}
-                
-                
-              
-                
-
-
-
-            </div>
-        </div>
-    )
-}
 
 const Applayout = ()=>{
     return(
