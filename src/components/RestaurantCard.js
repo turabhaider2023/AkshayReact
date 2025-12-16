@@ -1,21 +1,29 @@
-import {CDN_URL} from "../utils/constants.js"
+import { CDN_URL } from "../utils/constants.js";
 
-const Restaurantcard = (props)=>{
-    const {resData}=props;
-    const {cloudinaryId,name,cuisine,rating}=resData
-    console.log(resData)
-    return (
-        <div className="res-card">
-            <img className="flogo"
-            src={CDN_URL
-            +cloudinaryId+".jpg"}></img>
-            <h3>{name}</h3>
-            <h4>{cuisine}</h4>
-            <h4>Sandeep Rating {rating}</h4>
-            <h4>Nearst</h4>
+const Restaurantcard = ({ resData }) => {
 
-        </div>
-    )
-}
+  const {
+    name,
+    cloudinaryImageId,
+    cuisines,
+    avgRating,
+    areaName,
+  } = resData.info;
+
+  return (
+    <div className="res-card">
+      <img
+        className="flogo"
+        src={CDN_URL + cloudinaryImageId}
+        alt={name}
+      />
+
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>⭐ {avgRating}</h4>
+      <h4>{areaName}</h4>
+    </div>
+  );
+};
 
 export default Restaurantcard;

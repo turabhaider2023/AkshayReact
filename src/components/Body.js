@@ -13,7 +13,7 @@ import { useState,useEffect } from "react";
 
 const Body = ()=>{
 
-    const [ListofRestro,setListofRestro]=useState(resList)
+    const [ListofRestro,setListofRestro]=useState([])
 
     useEffect(()=>{
         fetchData();
@@ -24,8 +24,11 @@ const Body = ()=>{
        const data= await fetch
         ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.63270&lng=77.21980&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 
-        const json = data.json()
+        const json = await data.json()
+
         console.log(json)
+
+        setListofRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
     };
 
@@ -39,7 +42,7 @@ const Body = ()=>{
             <div className="filter">
                 <button className="filter-btn" 
                 onClick={()=>{ 
-                    const filteredList=ListofRestro.filter((res)=>res.rating>4.3);
+                    const filteredList=ListofRestro.filter((res)=>res.info.avgRating > 4.3);
                     setListofRestro(filteredList)
                 
                 }}
@@ -49,7 +52,7 @@ const Body = ()=>{
                 </button>
             </div>
             <div className="res-container">
-               { ListofRestro.map((restaurant) =>(<Restaurantcard key={restaurant.id} 
+               { ListofRestro.map((restaurant) =>(<Restaurantcard key={restaurant.info.id} 
                resData={restaurant}/>))}
                 
                 
